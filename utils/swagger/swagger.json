@@ -1,0 +1,67 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "description": "Swagger da API que obtem o valor da metragem.",
+    "version": "1.0.0",
+    "title": "inGaia API v1"
+  },
+  "tags": [
+    {
+      "name": "Obtem o valor da metragem",
+      "description": "Obtem o valor da metragem.",
+      "externalDocs": {
+        "description": "Mais Informações",
+        "url": "https://github.com/ingaia/backend-challenge"
+      }
+    }
+  ],
+  "servers": [
+    {
+      "url": "/",
+      "description": "Relativo (padrão)"
+    },
+    {
+      "url": "http://localhost:3001/{versao}",
+      "variables": {
+        "versao": {
+          "default": "v1",
+          "enum": [
+            "v1",
+            "v2",
+            "v3"
+          ]
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/value/meters": {
+      "get": {
+        "summary": "Obtem o valor da metragem.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSuccess"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RequestSuccess": {
+        "properties": {
+          "Valor": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}
