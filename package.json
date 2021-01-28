@@ -4,8 +4,12 @@
   "description": "backend challenge",
   "main": "index.js",
   "scripts": {
-    "start": "node --exec babel-node index.js",
-    "dev": "nodemon --exec babel-node index.js"
+    "clean": "rm -rf dist/",
+    "build": "npm run clean && babel / -d dist/ -s --copy-files --ignore __tests__",
+    "start": "node index.js",
+    "dev-start": "babel-node index.js",
+    "dev": "nodemon --exec babel-node index.js",
+    "test": "jest --no-cache --silent --watch __tests__/ --verbose --coverage --runInBand --detectOpenHandles"
   },
   "repository": {
     "type": "git",
